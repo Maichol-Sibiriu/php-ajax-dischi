@@ -6,7 +6,16 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  color: #fff;
+  color: #1e90ff;
+  text-transform: uppercase;
+}
+body h3 {
+  font-size: 13px;
+  margin: 15px 0px;
+}
+body p {
+  font-size: 11px;
+  opacity: 0.6;
 }
 
 .container {
@@ -17,6 +26,7 @@ body {
 header {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 10px;
+  border-bottom: 1px solid #daa520;
 }
 header img {
   width: 40px;
@@ -38,6 +48,7 @@ main .container .album {
   margin: 20px 0px;
   text-align: center;
   background-color: #000;
+  border: 3px solid #daa520;
 }
 main .container .album img {
   width: 100%;
