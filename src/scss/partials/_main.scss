@@ -1,0 +1,19 @@
+main{
+    background-color: rgba( pallete(1) , .5 );
+    .container{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 40px;
+        .album{
+            flex-basis: 200px;
+            padding: 15px 30px;
+            margin: 20px 0px;
+            text-align: center;
+            background-color: pallete(1);
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+// typography
+$writing: 'Roboto', sans-serif;
+
+// pallete
+$pallete: #000, #fff, #1e90ff, #daa520, #66ff00; 
+
+// function colors
+@function pallete($back-col){
+    @return nth($pallete , $back-col)
+};
