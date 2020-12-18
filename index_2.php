@@ -1,7 +1,7 @@
 <!-- riferimenti album -->
 <?php 
 
-include __DIR__ . '/partials/database.php';
+require_once __DIR__ . '/partials_2/database_2.php';
 
 ?>
 
@@ -20,14 +20,14 @@ include __DIR__ . '/partials/database.php';
     <!-- header -->
     <?php 
 
-    include __DIR__ . '/partials/header.php';
+    require_once __DIR__ . '/partials_2/header_2.php';
 
     ?>
 
     <!-- main -->
     <?php 
 
-    include __DIR__ . '/partials/main.php';
+    require_once __DIR__ . '/partials_2/main_2.php';
 
     ?>
     

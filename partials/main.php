@@ -1,21 +1,19 @@
 <main>
     <div class="container">
 
-        <?php foreach($database as $album){ ?>
+        <div class="album"
+             v-for="cd in album">
 
-            <div class="album">
-                <img src="<?php echo $album['poster']; ?>" alt="">
+            <img :src="cd.poster" alt="">
     
-                <h3><?php echo $album['title']; ?></h3>
+            <h3>{{ cd.title }}</h3>
     
-                <p><?php echo $album['author']; ?></p>
+            <p>{{ cd.author }}</p>
     
-                <h3><?php echo $album['year']; ?></h3>
+            <h3>{{ cd.year }}</h3>
     
-                <p><?php echo $album['genre']; ?></p>
-            </div>
+            <p>{{ cd.genre }}</p>
+        </div>
 
-         <?php } ?>
-           
     </div>
 </main>
