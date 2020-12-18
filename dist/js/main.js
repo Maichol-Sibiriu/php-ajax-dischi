@@ -14424,7 +14424,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   data: {
     //    riferimento array
-    album: []
+    album: [],
+    artist: '',
+    author: []
   },
   created: function created() {
     var _this = this;
@@ -14432,9 +14434,30 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost/php-ajax-dischi/partials/database.php').then(function (response) {
       console.log(response.data);
       _this.album = response.data;
+
+      _this.album.forEach(function (items) {
+        _this.author.push(items.author);
+      });
     })["catch"](function (error) {
       console.log(error);
     });
+  },
+  methods: {
+    changeType: function changeType() {
+      var _this2 = this;
+
+      console.log(this.artist);
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost/php-ajax-dischi/partials/database.php', {
+        params: {
+          artist: this.artist
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this2.album = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 

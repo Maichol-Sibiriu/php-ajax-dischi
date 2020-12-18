@@ -47,6 +47,22 @@
 
     header('Content-Type: application/json');
 
+
+
+    if( ! empty($_GET['artist']) &&  $_GET['artist'] !== 'all'){
+          
+         $arr= array(); 
+
+        foreach($database as $album){
+
+            if(strtolower($album['author']) === strtolower($_GET['artist']) ){
+                       array_push($arr, $album);   
+            }
+        }
+
+        $database = $arr;
+    }
+
     echo json_encode($database);
 
 ?>

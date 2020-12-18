@@ -1,5 +1,7 @@
 main{
-    background-color: rgba( pallete(1) , .5 );
+    // background-color: rgba( pallete(1) , .5 );
+    background-image: linear-gradient(315deg,
+    #000066 30%,#ff1493);
     .container{
         display: flex;
         justify-content: space-around;
@@ -11,7 +13,7 @@ main{
             margin: 20px 0px;
             text-align: center;
             background-color: pallete(1);
-            border: 3px solid pallete(4);
+            // border: 3px solid pallete(4);
             img{
                 width: 100%;
             }
