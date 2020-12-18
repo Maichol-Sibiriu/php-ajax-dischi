@@ -33,22 +33,28 @@ header img {
   height: 40px;
 }
 
-main {
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+#app main {
+  flex-grow: 1;
   background-image: linear-gradient(315deg, #000066 30%, #ff1493);
 }
-main .container {
+#app main .container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 40px;
 }
-main .container .album {
+#app main .container .album {
   flex-basis: 200px;
   padding: 15px 30px;
   margin: 20px 0px;
   text-align: center;
   background-color: #000;
 }
-main .container .album img {
+#app main .container .album img {
   width: 100%;
 }
