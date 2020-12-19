@@ -63,6 +63,20 @@
         $database = $arr;
     }
 
+    if( ! empty($_GET['genre']) &&  $_GET['genre'] !== 'all'){
+          
+        $genre= array(); 
+
+       foreach($database as $type){
+
+           if(strtolower($type['genre']) === strtolower($_GET['genre']) ){
+                      array_push($genre, $type);   
+           }
+       }
+
+       $database = $genre;
+   }
+
     echo json_encode($database);
 
 ?>

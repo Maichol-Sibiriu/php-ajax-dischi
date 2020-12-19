@@ -8,8 +8,10 @@ const app = new Vue({
 
       //    riferimento array
       album: [],
-      artist: '',
+      artist: 'all',
       author: [],
+      genre: 'all',
+      typeMusic: [],
 
     },
     created(){
@@ -22,8 +24,11 @@ const app = new Vue({
 
            this.album.forEach(items => {
               
+            //  push autori
              this.author.push(items.author);
-               
+
+            //  push generi
+             this.typeMusic.push(items.genre);
           });
 
 
@@ -34,6 +39,8 @@ const app = new Vue({
         })
     },
     methods:{
+
+      // funzione per cambio artista
       changeType(){
           console.log(this.artist);
           axios.get('http://localhost/php-ajax-dischi/partials/database.php',{
@@ -51,6 +58,26 @@ const app = new Vue({
     
             console.log(error);
           })
+      },
+
+      // funzione per cambio genere
+      changeGenre(){
+        console.log(this.genre);
+        axios.get('http://localhost/php-ajax-dischi/partials/database.php',{
+          params:{
+            genre: this.genre,
+          }
+        })
+        .then( response => {
+    
+          console.log(response.data);
+          this.album = response.data;
+
+        })
+        .catch( error => {
+  
+          console.log(error);
+        })
       }
     }
 

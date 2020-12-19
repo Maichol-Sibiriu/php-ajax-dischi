@@ -14425,8 +14425,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   data: {
     //    riferimento array
     album: [],
-    artist: '',
-    author: []
+    artist: 'all',
+    author: [],
+    genre: 'all',
+    typeMusic: []
   },
   created: function created() {
     var _this = this;
@@ -14436,13 +14438,18 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       _this.album = response.data;
 
       _this.album.forEach(function (items) {
-        _this.author.push(items.author);
+        //  push autori
+        _this.author.push(items.author); //  push generi
+
+
+        _this.typeMusic.push(items.genre);
       });
     })["catch"](function (error) {
       console.log(error);
     });
   },
   methods: {
+    // funzione per cambio artista
     changeType: function changeType() {
       var _this2 = this;
 
@@ -14454,6 +14461,22 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }).then(function (response) {
         console.log(response.data);
         _this2.album = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    // funzione per cambio genere
+    changeGenre: function changeGenre() {
+      var _this3 = this;
+
+      console.log(this.genre);
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost/php-ajax-dischi/partials/database.php', {
+        params: {
+          genre: this.genre
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this3.album = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
