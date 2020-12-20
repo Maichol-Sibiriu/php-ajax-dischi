@@ -8,11 +8,13 @@
 }
 
 select{
+    width: 135px;
     height: 25px;
-    background-color: dodgerblue;
+    background-color: pallete(3);
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
-    border-color: blue;
+    border-color: pallete(7);
     border-radius: 5px;
+    cursor: pointer;
 }

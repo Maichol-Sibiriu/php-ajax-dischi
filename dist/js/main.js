@@ -14423,12 +14423,17 @@ __webpack_require__.r(__webpack_exports__);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   data: {
-    //    riferimento array
+    //  riferimento array
     album: [],
+    // riferimento e array autori
     artist: 'all',
     author: [],
+    // riferimento e array generi
     genre: 'all',
-    typeMusic: []
+    typeMusic: [],
+    // riferimenti ricerca parola
+    search: '',
+    Label: []
   },
   created: function created() {
     var _this = this;
@@ -14442,7 +14447,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         _this.author.push(items.author); //  push generi
 
 
-        _this.typeMusic.push(items.genre);
+        if (!_this.typeMusic.includes(items.genre)) {
+          _this.typeMusic.push(items.genre);
+        }
       });
     })["catch"](function (error) {
       console.log(error);
@@ -14477,6 +14484,21 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }).then(function (response) {
         console.log(response.data);
         _this3.album = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    // funzione per ricerca parola
+    searchLabel: function searchLabel() {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost/php-ajax-dischi/partials/database.php', {
+        params: {
+          search: this.search
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this4.album = response.data;
       })["catch"](function (error) {
         console.log(error);
       });

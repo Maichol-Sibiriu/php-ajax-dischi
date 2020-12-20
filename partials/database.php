@@ -48,7 +48,7 @@
     header('Content-Type: application/json');
 
 
-
+    // filtro artista
     if( ! empty($_GET['artist']) &&  $_GET['artist'] !== 'all'){
           
          $arr= array(); 
@@ -63,6 +63,7 @@
         $database = $arr;
     }
 
+    // filtro genere
     if( ! empty($_GET['genre']) &&  $_GET['genre'] !== 'all'){
           
         $genre= array(); 
@@ -76,6 +77,30 @@
 
        $database = $genre;
    }
+
+   // filtro parola
+   // riferimenti chiavi
+   $search = $_GET['search'];
+   
+   if( ! empty($search) &&  $search !== '' && ! is_numeric($search) ){
+       
+       $searchLabel= array();
+       
+       foreach($database as $label){
+           
+           $title = strtolower($label['title'],
+           $author = strtolower($label['author'],
+           $genre = strtolower($label['genre'],
+
+            if( strpos($title , $search) || strpos($author , $search) || strpos($genre , $search) ){
+                
+                array_push($searchLabel, $label); 
+            }
+        }
+
+        $database = $searchLabel;
+
+    }
 
     echo json_encode($database);
 

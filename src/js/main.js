@@ -6,12 +6,20 @@ const app = new Vue({
     el: '#app',
     data: {
 
-      //    riferimento array
+      //  riferimento array
       album: [],
+      
+      // riferimento e array autori
       artist: 'all',
       author: [],
+
+      // riferimento e array generi
       genre: 'all',
       typeMusic: [],
+
+      // riferimenti ricerca parola
+      search: '',
+      Label: [],
 
     },
     created(){
@@ -22,14 +30,16 @@ const app = new Vue({
            console.log(response.data);
            this.album = response.data;
 
-           this.album.forEach(items => {
+            this.album.forEach(items => {
               
-            //  push autori
-             this.author.push(items.author);
+              //  push autori
+               this.author.push(items.author);
 
-            //  push generi
-             this.typeMusic.push(items.genre);
-          });
+              //  push generi
+              if( ! this.typeMusic.includes(items.genre)){
+                this.typeMusic.push(items.genre);
+              }
+            });
 
 
         })
@@ -66,6 +76,25 @@ const app = new Vue({
         axios.get('http://localhost/php-ajax-dischi/partials/database.php',{
           params:{
             genre: this.genre,
+          }
+        })
+        .then( response => {
+    
+          console.log(response.data);
+          this.album = response.data;
+
+        })
+        .catch( error => {
+  
+          console.log(error);
+        })
+      },
+
+      // funzione per ricerca parola
+      searchLabel(){
+        axios.get('http://localhost/php-ajax-dischi/partials/database.php',{
+          params:{
+            search: this.search,
           }
         })
         .then( response => {

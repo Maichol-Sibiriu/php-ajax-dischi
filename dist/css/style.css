@@ -28,13 +28,15 @@ body p {
 }
 
 select {
+  width: 135px;
   height: 25px;
-  background-color: dodgerblue;
+  background-color: #1e90ff;
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  border-color: blue;
+  border-color: #0000FF;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 header {
