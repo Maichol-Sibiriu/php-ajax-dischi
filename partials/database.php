@@ -80,27 +80,27 @@
 
    // filtro parola
    // riferimenti chiavi
-   $search = $_GET['search'];
+//    $search = $_GET['search'];
    
-   if( ! empty($search) &&  $search !== '' && ! is_numeric($search) ){
+//    if( ! empty($search) &&  $search !== '' && ! is_numeric($search) ){
        
-       $searchLabel= array();
+//        $searchLabel= array();
        
-       foreach($database as $label){
+//        foreach($database as $label){
            
-           $title = strtolower($label['title'],
-           $author = strtolower($label['author'],
-           $genre = strtolower($label['genre'],
+//            $title = strtolower($label['title'],
+//            $author = strtolower($label['author'],
+//            $genre = strtolower($label['genre'],
 
-            if( strpos($title , $search) || strpos($author , $search) || strpos($genre , $search) ){
+//             if( strpos($title , $search) || strpos($author , $search) || strpos($genre , $search) ){
                 
-                array_push($searchLabel, $label); 
-            }
-        }
+//                 array_push($searchLabel, $label); 
+//             }
+//         }
 
-        $database = $searchLabel;
+//         $database = $searchLabel;
 
-    }
+//     }
 
     echo json_encode($database);
 

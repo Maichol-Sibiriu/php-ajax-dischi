@@ -2,14 +2,6 @@
     <div class="container">
         <img src="./img/logo.png" alt="">
 
-        <!-- ricerca parola -->
-        <div class="search">
-           <h2>genre</h2>
-           <input type="text"
-                  v-model="search"
-                  @keyup="searchLabel">
-        </div>
-
         <!-- ricerca genere -->
         <div class="search">
            <h2>genre</h2>
